@@ -1,0 +1,100 @@
+class DirgaQueue
+{
+static int ekor = -1;
+static int maxEkor = 9;
+public static void masukkanQueue(String antrian[], String data)
+{
+if(ekor >= maxEkor)
+{
+System.out.println("Antrian Full");
+}
+else
+{
+System.out.println("masukkanQueue : " + data);
+ekor++;
+antrian[ekor] = data;
+}
+}
+public static String tambahQueue(String antrian[])
+{
+String hasil = " ";
+if(ekor < 0)
+{
+hasil = "Tidak ada antrian";
+}
+else
+{
+hasil = antrian[0];
+antrian[0] = null;
+for(int i = 1; i <= ekor; i++)
+{
+antrian[i-1] = antrian[i];
+antrian[i] = null;
+}
+ekor--;
+}
+
+return (hasil);
+}
+public static void bacaAntrian(String antrian[])
+{
+System.out.println("Kondisi antrian : ");
+for (int i = 0; i <= maxEkor; i++)
+{
+if(i == ekor)
+System.out.println((i+1) + "." + antrian[i] +" ekor");
+else
+System.out.println((i+1) + "." + antrian[i]);
+}
+}
+public static void clearAntrian(String antrian[])
+{
+for (int i= maxEkor; i>=0; i--)
+    {
+antrian[i]=null; 
+}
+    }
+public static void main(String args[])
+{
+String antrian[] = new String[100];
+masukkanQueue(antrian, "Mobil O");
+masukkanQueue(antrian, "Mobil P");
+masukkanQueue(antrian, "Mobil Q");
+masukkanQueue(antrian, "Mobil R");
+System.out.println();
+bacaAntrian(antrian);
+System.out.println();
+masukkanQueue(antrian, "Mobil S");
+masukkanQueue(antrian, "Mobil T");
+masukkanQueue(antrian, "Mobil U");
+System.out.println();
+bacaAntrian(antrian);
+System.out.println();
+masukkanQueue(antrian, "Mobil V");
+masukkanQueue(antrian, "Mobil W");
+masukkanQueue(antrian, "Mobil X");
+masukkanQueue(antrian, "Mobil Y");
+masukkanQueue(antrian, "Mobil Z");
+System.out.println();
+bacaAntrian(antrian);
+System.out.println();
+System.out.println("tambahQueue : " + tambahQueue(antrian));
+bacaAntrian(antrian);
+System.out.println();
+System.out.println("tambahQueue : " + tambahQueue(antrian));
+System.out.println("tambahQueue : " + tambahQueue(antrian));
+System.out.println("tambahQueue : " + tambahQueue(antrian));
+System.out.println("tambahQueue : " + tambahQueue(antrian));
+bacaAntrian(antrian);
+System.out.println();
+System.out.println("tambahQueue : " + tambahQueue(antrian));
+System.out.println("tambahQueue : " + tambahQueue(antrian));
+System.out.println("tambahQueue : " + tambahQueue(antrian));
+System.out.println("tambahQueue : " + tambahQueue(antrian));
+System.out.println("tambahQueue : " + tambahQueue(antrian));
+System.out.println("tambahQueue : " + tambahQueue(antrian));
+System.out.println("tambahQueue : " + tambahQueue(antrian));
+clearAntrian(antrian);
+bacaAntrian(antrian);
+}
+}
